@@ -17,7 +17,7 @@ Router.get("/", function (req, res) {
 
 //.populate('dons')
 
-Router.get("/all", function (req, res) {
+Router.get("/all",validateUser, function (req, res) {
   associationModel.find({}).populate('benevoles').exec(function (errr, result) {
     res.send(result)
   })
@@ -76,7 +76,7 @@ Router.get("/img/:imageAssociation", function (req, res) {
 })
 
 //ajouter association + benevoles + evenements + annonces
-Router.post("/ajouter", upload.single('imageAssociation'), function (req, res) {
+Router.post("/ajouter", upload.single('imageAssociation'),validateUser, function (req, res) {
 
   var file = __dirname + '/uploads/images' + req.file.originalname;
 

@@ -30,6 +30,19 @@ app.use("/annonce",annonce)
 app.use("/don",don)
 app.use("/auth",user)
 
+// // error handler
+// app.use(function(err, req, res, next) {
+//   if(err.status == 404) {
+//     // res.status(err.status || 404);
+//     res.send({"error" : "404", "message": "404"});
+//   } else if (err.status == 500) {
+//     // console.log(500);
+//     // render the error page
+//     // res.status(err.status || 500);
+//     res.send({"error" : "500", "message": "505"});
+//     // res.redirect('/500.html');
+//   }
+// });
 
 
 app.listen(8000,function () {
